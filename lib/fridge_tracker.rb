@@ -19,9 +19,17 @@ end
 
 
 if input_option.upcase == 'B'
-  puts "location?"
-  location = gets.chomp
-
-Fridge.create(location: "#{location}")
-
+  puts "where is the fridge's location?"
+  Fridge_location = gets.chomp
+  puts "what brand"
+  Fridge_brand = gets.chomp   
+  puts "What is size"
+  Fridge_size = gets.chomp 
+  Fridge.create do |fridge|
+    fridge.location = Fridge_location
+    fridge.brand = Fridge_brand
+    fridge.size_cubic_feet = Fridge_size
+    fridge.has_food = false
+    fridge.has_drinks = false 
+  end 
 end
